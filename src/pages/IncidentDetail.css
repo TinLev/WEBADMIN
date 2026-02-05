@@ -1,0 +1,61 @@
+.incident-detail-container {
+  padding: 20px;
+}
+
+.detail-field {
+  margin-bottom: 15px;
+}
+
+.detail-field label {
+  display: block;
+  color: #8b92b2;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.detail-field p {
+  color: #fff;
+  margin: 0;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.error-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-item {
+  background-color: #1a1a1a;
+  padding: 12px;
+  border-left: 3px solid #4a90e2;
+  border-radius: 4px;
+}
+
+.note-item p {
+  color: #ddd;
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+  }
+}

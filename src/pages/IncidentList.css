@@ -1,0 +1,46 @@
+.incident-list-container {
+  padding: 20px;
+}
+
+.filter-card {
+  margin-bottom: 20px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-controls .form-group {
+  display: flex;
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+.filter-controls input,
+.filter-controls select {
+  flex: 1;
+}
+
+.incident-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.incident-table th {
+  background-color: #333;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.incident-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+}
+
+.incident-table tr:hover {
+  background-color: #2f2f2f;
+}
