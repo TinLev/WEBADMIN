@@ -75,13 +75,23 @@ export default function Dashboard() {
       }
     ]
 
-    setIncidents(mockIncidents)
+    // Override with localStorage data if available
+    const updatedIncidents = mockIncidents.map(incident => {
+      const stored = localStorage.getItem(`incident_${incident.id}`)
+      if (stored) {
+        const storedIncident = JSON.parse(stored)
+        return { ...incident, status: storedIncident.status }
+      }
+      return incident
+    })
+
+    setIncidents(updatedIncidents)
 
     const statsData = {
-      total: mockIncidents.length,
-      open: mockIncidents.filter(i => i.status === 'open').length,
-      inProgress: mockIncidents.filter(i => i.status === 'in-progress').length,
-      resolved: mockIncidents.filter(i => i.status === 'resolved').length
+      total: updatedIncidents.length,
+      open: updatedIncidents.filter(i => i.status === 'open').length,
+      inProgress: updatedIncidents.filter(i => i.status === 'in-progress').length,
+      resolved: updatedIncidents.filter(i => i.status === 'resolved').length
     }
     setStats(statsData)
   }, [])

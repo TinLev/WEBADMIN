@@ -94,7 +94,17 @@ export default function IncidentList() {
       }
     ]
 
-    setIncidents(mockIncidents)
+    // Override with localStorage data if available
+    const updatedIncidents = mockIncidents.map(incident => {
+      const stored = localStorage.getItem(`incident_${incident.id}`)
+      if (stored) {
+        const storedIncident = JSON.parse(stored)
+        return { ...incident, status: storedIncident.status, notes: storedIncident.notes }
+      }
+      return incident
+    })
+
+    setIncidents(updatedIncidents)
   }, [])
 
   const filteredIncidents = incidents.filter(incident => {
